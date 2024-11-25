@@ -9,7 +9,7 @@ import { dashboardStyles } from '../util/designer-system';
 const Dashboard = () => {
     const [selectedTab, setSelectedTab] = useState<any>('clientes');
     return (
-        <Box >
+        <Box sx={{height:"100vh"}}>
             <Header setSelectedTab={setSelectedTab} selectedTab={selectedTab} />
             <Box sx={dashboardStyles.content}>
                 <Cards selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
