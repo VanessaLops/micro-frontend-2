@@ -2,12 +2,12 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "ESNext",
-    "jsx": "react-jsx", // Garante que JSX funcione corretamente
+    "jsx": "react-jsx",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "moduleResolution": "Bundler",
     "isolatedModules": true,
-    "noEmit": false,  // Não há mais necessidade de `noEmit` se não usar essa opção
+    "noEmit": false,
     "strict": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
