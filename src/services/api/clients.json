@@ -1,0 +1,55 @@
+{
+    "clients": [
+      {
+        "id": 14,
+        "name": "João",
+        "salary": 7000,
+        "companyValuation": 10000000,
+        "createdAt": "2024-11-24T17:17:01.316Z",
+        "updatedAt": "2024-11-24T17:17:01.316Z"
+      },
+      {
+        "id": 18,
+        "name": "Henrique",
+        "salary": 7000,
+        "companyValuation": 500000,
+        "createdAt": "2024-11-24T17:39:07.179Z",
+        "updatedAt": "2024-11-24T17:40:26.585Z"
+      },
+      {
+        "id": 19,
+        "name": "Pedro",
+        "salary": 7000,
+        "companyValuation": 10000000,
+        "createdAt": "2024-11-24T17:47:33.638Z",
+        "updatedAt": "2024-11-24T17:47:42.502Z"
+      },
+      {
+        "id": 20,
+        "name": "Vitor",
+        "salary": 4000,
+        "companyValuation": 10000000,
+        "createdAt": "2024-11-24T17:49:52.366Z",
+        "updatedAt": "2024-11-24T17:49:52.366Z"
+      },
+      {
+        "id": 21,
+        "name": "Mike",
+        "salary": 20000,
+        "companyValuation": 1000000000,
+        "createdAt": "2024-11-24T17:50:22.711Z",
+        "updatedAt": "2024-11-24T17:50:22.711Z"
+      },
+      {
+        "id": 24,
+        "name": "neuza",
+        "salary": 22,
+        "companyValuation": 2333,
+        "createdAt": "2024-11-24T20:48:27.577Z",
+        "updatedAt": "2024-11-24T20:48:27.577Z"
+      }
+    ],
+    "totalPages": 1,
+    "currentPage": 1
+  }
+  
