@@ -36,7 +36,6 @@ const CustomModal: React.FC<ModalProps> = ({ open, onClose, title, client }) => 
                 user = await updateUser(client.id, { name, salary, companyValuation });
                 setNotificationMessage(`O cliente ${name} foi atualizado com sucesso.`);
             } else {
-             
                 user = await createUser({ name, salary, companyValuation });
                 setNotificationMessage(`O cliente ${name} foi criado com sucesso.`);
             }
@@ -95,7 +94,12 @@ const CustomModal: React.FC<ModalProps> = ({ open, onClose, title, client }) => 
             <Dialog open={open} onClose={handleClose}>
                 <Box
                     sx={{
-                        width: 400,
+                       
+                        width: {
+                            xs: 200, 
+                            sm: 200, 
+                            md: 500, 
+                        },
                         backgroundColor: '#fff',
                         borderRadius: '8px',
                         padding: 3,

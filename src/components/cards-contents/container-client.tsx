@@ -60,6 +60,7 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
         setPaginaAtual(page);
     };
 
+    
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false);
     const [clienteParaExcluir, setClienteParaExcluir] = useState<Cliente | null>(null);
 
