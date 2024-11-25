@@ -11,7 +11,7 @@ import { HeaderProps } from "../../models/headerDTO";
 import CustomModal from "../modal";
 import Notification from "../alert";
 import ConfirmationModal from "../confirme-modal";
-
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
     const isClientes = selectedTab === 'clientes';
@@ -38,14 +38,19 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
 
     const handleAddCliente = (cliente: Cliente) => {
         setClientesSelecionados((prevSelected) => {
-            const isAlreadySelected = prevSelected.find((item) => item.id === cliente.id);
+
+            const isAlreadySelected = prevSelected.some((item) => item.id === cliente.id);
+
             if (isAlreadySelected) {
+
                 return prevSelected.filter((item) => item.id !== cliente.id);
             } else {
+
                 return [...prevSelected, cliente];
             }
         });
     };
+
 
     const handleChange = (event: SelectChangeEvent<number>) => {
         setClientesPorPagina(Number(event.target.value));
@@ -97,7 +102,7 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
         setClienteParaEditar(cliente);
         handleOpen();
     };
-  
+
 
     const refreshUsers = async () => {
         setIsLoading(true);
@@ -221,9 +226,17 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
                                                     </Typography>
                                                     <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', alignSelf: 'center', mx: 2, width: 500 }}>
                                                         <Box sx={{ display: 'flex', gap: 2, justifyContent: 'space-around', width: 300, alignItems: "center" }}>
-                                                            <IconButton sx={{ width: 30, height: 30 }}>
-                                                                <LineAxisOutlined />
+                                                            <IconButton
+                                                                sx={{ width: 30, height: 30 }}
+                                                                onClick={() => handleAddCliente(cliente)}
+                                                            >
+                                                                {clientesSelecionados.some(item => item.id === cliente.id) ? (
+                                                                    <RemoveIcon sx={{ color: "#EC6724" }} />
+                                                                ) : (
+                                                                    <AddIcon sx={{ color: "default" }} /> 
+                                                                )}
                                                             </IconButton>
+
                                                         </Box>
                                                     </Box>
                                                 </Card>
