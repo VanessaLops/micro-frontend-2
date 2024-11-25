@@ -60,7 +60,7 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
         setPaginaAtual(page);
     };
 
-    
+
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false);
     const [clienteParaExcluir, setClienteParaExcluir] = useState<Cliente | null>(null);
 
@@ -139,21 +139,66 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
     return (
         <Box sx={carddStyles.container}>
             <Box sx={carddStyles.header}>
-                <Typography sx={carddStyles.title}>
-                    {isClientes ? `${totalClientes?.clients?.length || 0} Clientes Encontrados` : 'Clientes selecionados'}
-                </Typography>
-                <Typography sx={carddStyles.selectContainer}>
-                    Clientes Por Página:
-                    <Select
-                        value={clientesPorPagina}
-                        onChange={handleChange}
-                        sx={carddStyles.select}
-                    >
-                        <MenuItem value={8}>8</MenuItem>
-                        <MenuItem value={16}>16</MenuItem>
-                    </Select>
-                </Typography>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: {
+                        xs: 'column',
+                        sm: 'row',
+                    },
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    width: '100%',
+                    gap: 2,
+                }}>
+                    <Typography sx={{
+                        ...carddStyles.title,
+                        fontSize: {
+                            xs: '12px',
+                            sm: '16px',
+                            md: '18px',
+                        },
+                        width: '100%',
+                    }}>
+                        {isClientes ? `${totalClientes?.clients?.length || 0} Clientes Encontrados` : 'Clientes selecionados'}
+                    </Typography>
+
+                    <Box sx={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        width: '100%',
+                    }}>
+                        <Typography sx={{
+                            ...carddStyles.selectContainer,
+                            fontSize: {
+                                xs: '12px',
+                                sm: '16px',
+                                md: '18px',
+                            },
+                            marginRight: 1,
+                        }}>
+                            Clientes Por Página:
+                        </Typography>
+
+                        <Select
+                            value={clientesPorPagina}
+                            onChange={handleChange}
+                            sx={{
+                                ...carddStyles.select,
+                                fontSize: {
+                                    xs: '12px',
+                                    sm: '16px',
+                                    md: '18px',
+                                },
+                                minWidth: '80px',
+                            }}
+                        >
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={16}>16</MenuItem>
+                        </Select>
+                    </Box>
+                </Box>
             </Box>
+
             <Box>
                 {isLoading ? (
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -233,7 +278,7 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
                                                                 {clientesSelecionados.some(item => item.id === cliente.id) ? (
                                                                     <RemoveIcon sx={{ color: "#EC6724" }} />
                                                                 ) : (
-                                                                    <AddIcon sx={{ color: "default" }} /> 
+                                                                    <AddIcon sx={{ color: "default" }} />
                                                                 )}
                                                             </IconButton>
 
@@ -287,7 +332,7 @@ const Cards: React.FC<HeaderProps> = ({ selectedTab }) => {
                 }
                 buttonText="Excluir cliente"
             />
-        </Box>
+        </Box >
     );
 };
 
