@@ -5,7 +5,6 @@ import AddIcon from "@mui/icons-material/Add";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import { deleteUser, getUsers } from "../../services/api/userService";
-import { LineAxisOutlined } from "@mui/icons-material";
 import { Cliente, ResponseData } from "../../models/clientsDTO";
 import { HeaderProps } from "../../models/headerDTO";
 import CustomModal from "../modal";

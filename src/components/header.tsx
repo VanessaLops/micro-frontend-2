@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { AppBar, Box, Button, Toolbar, Typography, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-// import Logo from '../assets/img/logo-dashboard.png';
+import Logo from '../assets/img/logo-dashboard.png';
 import { dashboardStyles } from '../util/designer-system';
 import { HeaderProps } from '../models/headerDTO';
 import { themes } from '../assets/styles/global-theme';
 import Sidebar from './sidebar';
 import { useNavigate } from 'react-router-dom';
+import { SelectedTab } from '../models/sidebarDTO';
 
 const Header: React.FC<HeaderProps> = ({ setSelectedTab, selectedTab }) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -28,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ setSelectedTab, selectedTab }) => {
                     <Button onClick={handleSidebarToggle}>
                         <MenuIcon sx={dashboardStyles.menuIcon} />
                     </Button>
-                    {/* <Box component="img" src={Logo} alt="Logo" sx={dashboardStyles.logo} /> */}
+                    <Box component="img" src={Logo} alt="Logo" sx={dashboardStyles.logo} />
                 </Box>
 
 
@@ -72,6 +73,7 @@ const Header: React.FC<HeaderProps> = ({ setSelectedTab, selectedTab }) => {
 
                 {isMobile ? (
                     <Typography
+                        onClick={() => handleButtonClick()}
                         component="a"
                         href="#sair"
                         sx={dashboardStyles.navLinkText}
@@ -87,10 +89,10 @@ const Header: React.FC<HeaderProps> = ({ setSelectedTab, selectedTab }) => {
             <Box>
 
                 <Sidebar
+                    selectedTab={selectedTab as SelectedTab}
                     sidebarOpen={sidebarOpen}
                     setSidebarOpen={setSidebarOpen}
                     setSelectedTab={setSelectedTab}
-
                 />
             </Box>
 
