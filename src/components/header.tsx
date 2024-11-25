@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import { AppBar, Box, Button,  Toolbar, Typography, useMediaQuery } from '@mui/material';
+import { AppBar, Box, Button, Toolbar, Typography, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 // import Logo from '../assets/img/logo-dashboard.png';
 import { dashboardStyles } from '../util/designer-system';
 import { HeaderProps } from '../models/headerDTO';
 import { themes } from '../assets/styles/global-theme';
 import Sidebar from './sidebar';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC<HeaderProps> = ({ setSelectedTab, selectedTab }) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const isMobile = useMediaQuery(themes.breakpoints.down('sm'));
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        window.location.href = 'https://micro-frontend-1-two.vercel.app';
+    };
 
     const handleSidebarToggle = () => {
         setSidebarOpen(!sidebarOpen);
@@ -53,6 +59,7 @@ const Header: React.FC<HeaderProps> = ({ setSelectedTab, selectedTab }) => {
                             Clientes selecionados
                         </Typography>
                         <Typography
+                            onClick={() => handleButtonClick()}
                             component="a"
                             href="#sair"
                             sx={dashboardStyles.navLinkText}
